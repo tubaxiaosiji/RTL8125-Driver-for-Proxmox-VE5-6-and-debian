@@ -7,4 +7,4 @@
 6.运行脚本[shell]   sh ./RLT8125.sh  
 7.等待一会[wait for minutes]...  
 8.检查模块是否安装加载[check kernel module loaded]   lsmod | grep 'rtl8125'  
-9.出现1行rlt 8125字样即安装成功。  [OK！] 
+9.出现2行rlt 8125字样即安装成功。  [OK！] 
