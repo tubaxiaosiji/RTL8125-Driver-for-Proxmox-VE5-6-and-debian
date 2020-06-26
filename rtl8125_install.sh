@@ -48,19 +48,18 @@ fi
 # NOT recommended for production use 【不建议生产环境中使用】
 # PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】
 
-
 if [ "$PVE_Main_version" == 6 ]; then
 	# add PVE 6.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' >> /etc/apt/sources.list.d/pve-no-subscription.list
+	echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 elif [ "$PVE_Main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian stretch pve-no-subscription' >> /etc/apt/sources.list.d/pve-no-subscription.list
+	echo 'deb http://download.proxmox.com/debian stretch pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 elif [ "$PVE_Main_version" == 4 ]; then
 	# add PVE 4.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian jessie pve-no-subscription' >> /etc/apt/sources.list.d/pve-no-subscription.list
+	echo 'deb http://download.proxmox.com/debian jessie pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 elif [ "$PVE_Main_version" == 3 ]; then
 	# add PVE 3.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian wheezy pve-no-subscription' >> /etc/apt/sources.list.d/pve-no-subscription.list
+	echo 'deb http://download.proxmox.com/debian wheezy pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 else 
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list. [因为你不是PVE系统，所以没有添加任何软件源.]'
 fi
