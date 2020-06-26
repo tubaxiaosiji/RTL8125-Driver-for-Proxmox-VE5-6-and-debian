@@ -80,6 +80,6 @@ if [ $? == 0 ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
 	exit 0
 else 
-	echo 'Please confirm your system version is last released[sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
+	echo 'Please confirm your system version is last released[try:sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
 	exit -1
 fi
