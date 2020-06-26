@@ -5,6 +5,11 @@
 
 PVE_kernel_version=`uname -r`
 
+if [ 'pve' not in $PVE_kernel_version ]; then
+	echo 'Sorry, your system is not supported it.[抱歉，您的系统不被支持，请在 PVE 3.0-6.0 下使用。]'
+	exit 0
+fi
+
 kernel_headers_full_version=pve-headers-${PVE_kernel_version}
 
 # Get PVE Full version 【获取当前PVE完整版本】
@@ -21,24 +26,18 @@ PVE_main_version=
 if [ "$PVE_main_version" == "6" ]; then
 	# add PVE 6.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian/pve buster pve-no-subscription
-fi
-
-
-if [ "$PVE_main_version" == "5" ]; then
+elif [ "$PVE_main_version" == "5" ]; then
 	# add PVE 5.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian stretch pve-no-subscription
-fi
-
-
-if [ "$PVE_main_version" == "4" ]; then
+elif [ "$PVE_main_version" == "4" ]; then
 	# add PVE 4.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian jessie pve-no-subscription
-fi
-
-
-if [ "$PVE_main_version" == "3" ]; then
+elif [ "$PVE_main_version" == "3" ]; then
 	# add PVE 3.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian wheezy pve-no-subscription
+else 
+	echo 'Sorry, your system is not supported it. [对不起，这个脚本暂时不支持您的系统。]'
+	exit 0
 fi
 
 
