@@ -68,7 +68,7 @@ fi
 
 apt-get update
 # Install dependent packages 【安装依赖包】
-apt-get install ${pve_kernel_headers_version} dkms build-essential 
+apt-get -y install ${pve_kernel_headers_version} dkms build-essential 
 
 
 tar -xvf $PWD/r8125-9.003.04.tar
