@@ -62,12 +62,13 @@ elif [ "$PVE_Main_version" == 3 ]; then
 	echo 'deb http://download.proxmox.com/debian wheezy pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 else 
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list. [因为你不是PVE系统，所以没有添加任何软件源.]'
+	sleep 5
 fi
 
 
 apt-get update
 # Install dependent packages 【安装依赖包】
-apt-get -y install ${pve_kernel_headers_version} dkms build-essential 
+apt-get -y install ${pve_kernel_headers_version} dkms build-essential make gcc linux-compiler-gcc-8-x86
 
 
 tar -xvf $PWD/r8125-9.003.04.tar
