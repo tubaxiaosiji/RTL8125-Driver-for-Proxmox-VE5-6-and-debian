@@ -1,5 +1,5 @@
 
-        一键为Proxmox VE 添加RTL 8125 2.G网卡驱动,代码还没完成。。。。       [Incomplete linux shell code]          
+        一键为Proxmox VE 添加RTL 8125 2.G网卡驱动, 刚刚写完，请试试吧QAQ       
    
 注意[Notice]:           
               
