@@ -1,12 +1,16 @@
 # /bin/bash
 # This script is automaticlly complie RTL8125 2.5G ethernet card driver for PVE
 # date 2020/4/25 22:35 UTC +8:00
-# Get Promox env version
+# Get Proxmox VE kernel version 获取PVE内核版本
 
-PveVersion=`uname -r`
-sed xx $PveVersion xxxx
+PVE_kernel_version=`uname -r`
+
+kernel_headers_full_version=pve-headers-${PVE_kernel_version}
+
+PVE_version=`pveversion`
 
 
+# add no subcript source 添加非企业用户源
 if 6.0 == PveVersion{
 	add PVE 6.0 no subcript to apt source.list
 }
@@ -16,16 +20,15 @@ if 5.0 == PveVersion{
 }
 
 if 4.0 == PveVersion{
-	add PVE 5.0 no subcript to apt source.list
+	add PVE 5.0 no subcript to apt source.list 
 }
 
 
 
-
-apt-update
+apt-get update
 # Install dependent packages
 
-apt-get install ${PveVersion_kernel_Headers} dkms build-essential
+apt-get install ${kernel_headers_full_version} dkms build-essential
 
 
 
