@@ -51,7 +51,6 @@ fi
 
 if [ "$PVE_Main_version" == 6 ]; then
 	# add PVE 6.0 no subcript to apt source.list
-	deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 	echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' >> /etc/apt/sources.list.d/pve-no-subscription.list
 elif [ "$PVE_Main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
@@ -67,16 +66,16 @@ else
 fi
 
 
-sudo apt-get update
+apt-get update
 # Install dependent packages 【安装依赖包】
-sudo apt-get -y install ${pve_kernel_headers_version} dkms build-essential 
+apt-get -y install ${pve_kernel_headers_version} dkms build-essential 
 
 
-sudo tar -xvf $PWD/r8125-9.003.04.tar
+tar -xvf $PWD/r8125-9.003.04.tar
 cd r8125-9.003.04
 
-sudo chmod a+x autorun.sh
-sudo ./autorun.sh
+chmod a+x autorun.sh
+./autorun.sh
 
 if [ $? == 0 ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
