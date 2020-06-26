@@ -10,30 +10,33 @@ PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软
 1.食用方法如下 [Usage] :  
 
 
-2.安装git和它的依赖组件 是否安装 [Install git and dependent packages] 
+2.安装git和它的依赖组件[Install git and dependent packages] 
 
 	root@hostname# apt-get update && apt-get install git  
 
-3.克隆我的仓库 [Clone my .git]
+3.克隆我的仓库  [Clone my .git]
 
 	root@hostname# git clone https://github.com/tubaxiaosiji/RTL8125-Driver-for-Proxmox-VE.git  
 
-4.切换到目录[Change dir]   
+4.切换到目录	  [Change dir]   
 
 	root@hostname# cd ./RTL8125-Driver-for-Proxmox-VE  
 
-5.赋予运行权限[Chmod]   
+5.赋予运行权限   [Chmod]   
 
 	root@hostname# chmod a+x rtl8125_install.sh  
 
-6.运行脚本[Run script in shell]   
+6.运行脚本    [Run script in shell]   
 
 	root@hostname# sh ./rtl8125_install.sh  
 
-7.等待一会[Wait for a minutes]...  
+7.等待一会      [Wait for a minutes]...  
+
+
 
 8.检查模块是否已安装加载[Check kernel module is exist it]   
 
 	root@hostname# lsmod | grep 'rtl8125'   
+	
 
 9.出现rlt 8125字样即安装成功。  [If show 'rtl8125' that is OK!]
