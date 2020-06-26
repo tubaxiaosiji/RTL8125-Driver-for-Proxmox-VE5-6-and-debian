@@ -6,7 +6,7 @@
 PVE_kernel_version=`uname -r`
 
 if [ 'pve' not in $PVE_kernel_version ]; then
-	echo 'Sorry, your system is not supported it.[抱歉，您的系统不被支持，请在 PVE 3.0-6.0 下使用。]'
+	echo 'Sorry, your system is not supported it, please run it on Proxmox VE 3.0-6.0 [抱歉，您的系统不被支持，请在 PVE 3.0-6.0 下使用。]'
 	exit 0
 fi
 
@@ -57,5 +57,5 @@ chmod a+x autorun.sh
 if [ lsmod | grep 'rtl8152' != "" ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
 elif 
-	echo 'Please confirm your system is PVE and installed PCIE RTL8125 2.5G ethernet card on your mainboard.  [请确认您的系统是PVE，并且安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
+	echo 'Please confirm has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
 fi
