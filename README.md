@@ -1,4 +1,5 @@
-一键为Proxmox VE 添加RTL 8125 2.G网卡驱动,代码还没完成。。。。       [Incomplete linux shell code]          
+
+        一键为Proxmox VE 添加RTL 8125 2.G网卡驱动,代码还没完成。。。。       [Incomplete linux shell code]          
    
 注意[Notice]:           
               
@@ -10,7 +11,7 @@ PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软
 1.食用方法如下 [Usage] :  
 
 
-2.安装git和它的依赖组件[Install git and dependent packages] 
+2.安装git和它的依赖组件  [Install git and dependent packages] 
 
 	root@hostname# apt-get update && apt-get install git  
 
