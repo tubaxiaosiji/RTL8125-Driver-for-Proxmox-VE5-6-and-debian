@@ -15,7 +15,7 @@ uname -r > /tmp/PVE_kernel_version.log
 check=`grep "pve" /tmp/PVE_kernel_version.log`
 
 if [ "${check}" != "" ]; then
-        echo "Check is OK!\n [检测通过........]\n"
+        echo "Check is OK! [检测通过........]"
         rm /tmp/PVE_kernel_version.log
 else
         echo "Sorry, your system is not supported it, please run it on Proxmox VE 3.0-6.0. [抱歉，您的系统不被支持，请在 PVE 3.0-6.0 下使用。]"
