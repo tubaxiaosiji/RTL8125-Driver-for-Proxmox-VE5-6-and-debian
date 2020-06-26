@@ -14,12 +14,12 @@ Linux_kernel_version=`uname -r`
 
 # Get Proxmox VE kernel version 【获取PVE内核版本】
 
-uname -r > /tmp/PVE_kernel_version.log
-check=`grep "pve" /tmp/PVE_kernel_version.log`
+uname -r > /tmp/kernel_version.log
+check=`grep "pve" /tmp/kernel_version.log`
 pve_kernel_headers_version=''
 if [ "${check}" != "" ]; then
         echo "Check is OK! [检测通过........]"
-        rm /tmp/PVE_kernel_version.log
+        rm /tmp/kernel_version.log
 	pve_kernel_headers_version=pve-headers-${Linux_kernel_version}
 	# Get PVE Full version 【获取当前PVE完整版本】
 	PVE_Full_version=`pveversion`
