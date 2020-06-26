@@ -35,13 +35,13 @@ r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网
 
 	root@hostname# sh ./rtl8125_install.sh  
 
-7.等待一会      [Wait for a minutes]...  
+7.等待一会   [Wait for a minutes]...  
 
 
 
-8.检查模块是否已安装加载[Check kernel module is exist it]   
+8.检查模块是否已安装加载   [Check kernel module is exist it]   
 
 	root@hostname# lsmod | grep 'rtl8125'   
 	
 
-9.出现 rlt 8125字样即安装成功。  [If show 'rtl8125' that is OK!]
+9.出现 rlt 8125字样即安装成功   [If show 'rtl8125' that is OK!]
