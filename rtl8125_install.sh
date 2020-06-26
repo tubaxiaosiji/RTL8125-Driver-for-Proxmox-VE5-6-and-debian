@@ -67,21 +67,21 @@ else
 fi
 
 
-apt-get update
+sudo apt-get update
 # Install dependent packages 【安装依赖包】
-apt-get -y install ${pve_kernel_headers_version} dkms build-essential 
+sudo apt-get -y install ${pve_kernel_headers_version} dkms build-essential 
 
 
-tar -xvf $PWD/r8125-9.003.04.tar
+sudo tar -xvf $PWD/r8125-9.003.04.tar
 cd r8125-9.003.04
 
-chmod a+x autorun.sh
-./autorun.sh
+sudo chmod a+x autorun.sh
+sudo ./autorun.sh
 
 if [ $? == 0 ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
 	exit 0
 else 
-	echo 'Please confirm your system version and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请检查系统版本，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
+	echo 'Please confirm your system version is last released[sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
 	exit -1
 fi
