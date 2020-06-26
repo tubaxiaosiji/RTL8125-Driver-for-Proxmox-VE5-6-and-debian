@@ -24,7 +24,8 @@ if [ "${check}" != "" ]; then
 else
         echo ''
 	while true; do
-	    read -p "Warning, your system is not Proxmox VE.Maybe there is no matching kernel version in your software source repository， Continue? y/n [警告，您的系统不是PVE，也许您的软件源仓库里没有匹配的内核版本，继续安装？按y继续，按n退出.]" yn
+	    read -p "Warning, your system is not Proxmox VE.Maybe there is no matching kernel version in your software source repository，Continue? y/n
+	    [警告，您的系统不是PVE，也许您的软件源仓库里没有匹配的内核版本，继续安装？按y继续，按n退出.]" yn
 	    case $yn in
 		[Yy]* ) break;;
 		[Nn]* ) exit 0;;
@@ -32,6 +33,8 @@ else
 	    esac
 	done
 	pve_kernel_headers_version=linux-headers-${Linux_kernel_version}
+	echo "Your Linux Kernel version is ${Linux_kernel_version}"
+	echo "你的 Linux Kernel 版本是：${Linux_kernel_version}"
 
 fi
 
@@ -59,7 +62,7 @@ elif [ "$PVE_Main_version" == 3 ]; then
 	# add PVE 3.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian wheezy pve-no-subscription
 else 
-	echo 'no subcript to apt source.list. [没有添加PVE软件源。 ]'
+	echo 'Your system is not Proxmox VE that No deb source add to apt source.list. [因为你不是PVE系统，所以没有添加任何软件源.]'
 fi
 
 
@@ -74,10 +77,10 @@ cd r8125-9.003.04
 chmod a+x autorun.sh
 ./autorun.sh
 
-if [ lsmod | grep 'rtl8152' != "" ]; then
+if [ $? == 0 ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
 	exit 0
-elif 
+else 
 	echo 'Please confirm has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
 	exit -1
 fi
