@@ -9,7 +9,7 @@
 
 	root@hostname# apt-get update && apt-get install git  
 
-3.克隆我的仓库  
+3.克隆我的仓库 [Clone my .git]
 
 	root@hostname# git clone https://github.com/tubaxiaosiji/RTL8125-Driver-for-Proxmox-VE.git  
 
