@@ -18,7 +18,7 @@ if [ "${check}" != "" ]; then
         echo "Check is OK!\n [检测通过........]\n"
         rm /tmp/PVE_kernel_version.log
 else
-        echo "Sorry, your system is not supported it, please run it on Proxmox VE 3.0-6.0. \n[抱歉，您的系统不被支持，请在 PVE 3.0-6.0 下使用。]\n"
+        echo "Sorry, your system is not supported it, please run it on Proxmox VE 3.0-6.0. [抱歉，您的系统不被支持，请在 PVE 3.0-6.0 下使用。]"
         exit -1
 fi
 
@@ -35,16 +35,16 @@ PVE_main_version=${PVE_full_version:12:1}
 # PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】
 
 
-if [ "$PVE_main_version" == "6" ]; then
+if [ "$PVE_main_version" == 6 ]; then
 	# add PVE 6.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian/pve buster pve-no-subscription
-elif [ "$PVE_main_version" == "5" ]; then
+elif [ "$PVE_main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian stretch pve-no-subscription
-elif [ "$PVE_main_version" == "4" ]; then
+elif [ "$PVE_main_version" == 4 ]; then
 	# add PVE 4.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian jessie pve-no-subscription
-elif [ "$PVE_main_version" == "3" ]; then
+elif [ "$PVE_main_version" == 3 ]; then
 	# add PVE 3.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian wheezy pve-no-subscription
 else 
