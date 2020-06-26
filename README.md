@@ -31,4 +31,4 @@
 
 	root@hostname# lsmod | grep 'rtl8125'   
 
-9.出现2行rlt 8125字样即安装成功。  [show 2 lines 'rtl8125' is OK！]
+9.出现rlt 8125字样即安装成功。  [show 'rtl8125' is OK!]
