@@ -67,8 +67,9 @@ fi
 
 
 apt-get update
+apt-get -y install ${pve_kernel_headers_version}
 # Install dependent packages 【安装依赖包】
-apt-get -y install ${pve_kernel_headers_version} dkms build-essential make gcc linux-compiler-gcc-8-x86
+apt-get -y install dkms build-essential make gcc linux-compiler-gcc-8-x86
 
 
 tar -xvf $PWD/r8125-9.003.04.tar
