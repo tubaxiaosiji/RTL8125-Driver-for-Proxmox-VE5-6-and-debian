@@ -27,7 +27,7 @@
 
 7.等待一会[Wait for a minutes]...  
 
-8.检查模块是否已安装加载[Check kernel module is loaded]   
+8.检查模块是否已安装加载[Check kernel module is exist it]   
 
 	root@hostname# lsmod | grep 'rtl8125'   
 
