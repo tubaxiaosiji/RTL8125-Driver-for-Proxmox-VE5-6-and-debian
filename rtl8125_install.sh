@@ -10,10 +10,10 @@ kernel_headers_full_version=pve-headers-${PVE_kernel_version}
 # Get PVE Full version 【获取当前PVE完整版本】
 PVE_version=`pveversion`
 
-# Get PVE Main version 【获取当前PVE主版本，添加订阅源会用到】
+# Get PVE Main version 【获取当前PVE主版本，添加软件仓库源会用到】
 PVE_main_version=
 
-# add no subcript source 【添加非订阅用户源】
+# Add no subcript source 【添加非订阅用户源】
 # NOT recommended for production use 【不建议生产环境中使用】
 # PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】
 
@@ -53,11 +53,11 @@ cd r8125-9.003.04
 chmod a+x autorun.sh
 ./autorun.sh
 
-# check loaded kernel modules exist 'rtl8152' keyword
+# Check rtl8125 kernel modules exist it
 
 if [ lsmod | grep 'rtl8152' != "" ]; then
 	print('RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]')
 }
-else{
-	print('Please confirm your system is PVE and installed PCIE RTL8125 2.5G ethernet card on your mainboard.  [请确认您的系统是PVE，并且安装好了Rlt 8125网卡在主板PCIE卡槽上。]')
-}
+else if 
+	echo 'Please confirm your system is PVE and installed PCIE RTL8125 2.5G ethernet card on your mainboard.  [请确认您的系统是PVE，并且安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
+fi
