@@ -10,20 +10,30 @@ if [ "$check" != "" ]; then
 fi
 # Get Proxmox VE kernel version 【获取PVE内核版本】
 
-PVE_kernel_version=`uname -r`
+Linux_kernel_version=`uname -r`
+
+# Get Proxmox VE kernel version 【获取PVE内核版本】
+
 uname -r > /tmp/PVE_kernel_version.log
 check=`grep "pve" /tmp/PVE_kernel_version.log`
-
+pve_kernel_headers_version=''
 if [ "${check}" != "" ]; then
-        echo "Kernel version is matched! [内核版本检测通过........]"
+        echo "Check is OK! [检测通过........]"
         rm /tmp/PVE_kernel_version.log
+	pve_kernel_headers_version=pve-headers-${Linux_kernel_version}
 else
-        echo "Sorry, your Kernel version is not supported it, please run it on Proxmox VE [抱歉，您的内核不被支持，请在 PVE 下使用。]"
-        exit -1
+        echo ''
+	while true; do
+	    read -p "Warning, your system is not Proxmox VE.Maybe there is no matching kernel version in your software source repository， Continue? y/n [警告，您的系统不是PVE，也许您的软件源仓库里没有匹配的内核版本，继续安装？按y继续，按n退出.]" yn
+	    case $yn in
+		[Yy]* ) break;;
+		[Nn]* ) exit 0;;
+		* ) echo "Please answer yes or no.";;
+	    esac
+	done
+	pve_kernel_headers_version=linux-headers-${Linux_kernel_version}
+
 fi
-
-
-pve_kernel_headers_version=pve-headers-${PVE_kernel_version}
 
 # Get PVE Full version 【获取当前PVE完整版本】
 PVE_Full_version=`pveversion`
@@ -49,8 +59,7 @@ elif [ "$PVE_Main_version" == 3 ]; then
 	# add PVE 3.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian wheezy pve-no-subscription
 else 
-	echo 'Sorry, your system is not supported it. [对不起，这个脚本暂时不支持您的系统。]'
-	exit 0
+	echo 'no subcript to apt source.list. [没有添加PVE软件源。 ]'
 fi
 
 
