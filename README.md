@@ -17,7 +17,7 @@
 
 	root@hostname# cd ./RTL8125-Driver-for-Proxmox-VE  
 
-5.赋予权限[Chmod]   
+5.赋予运行权限[Chmod]   
 
 	root@hostname# chmod a+x rtl8125_install.sh  
 
@@ -27,8 +27,8 @@
 
 7.等待一会[Wait for a minutes]...  
 
-8.检查模块是否已安装加载[check kernel module is loaded]   
+8.检查模块是否已安装加载[Check kernel module is loaded]   
 
 	root@hostname# lsmod | grep 'rtl8125'   
 
-9.出现rlt 8125字样即安装成功。  [show 'rtl8125' is OK!]
+9.出现rlt 8125字样即安装成功。  [If show 'rtl8125' is OK!]
