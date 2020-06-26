@@ -8,5 +8,5 @@
 5.赋予权限[chmod]   chmod a+x rtl8125_install.sh  
 6.运行脚本[run script in shell]   sh ./rtl8125_install.sh  
 7.等待一会[wait for a minutes]...  
-8.检查模块是否已安装加载[check kernel module loaded]   lsmod | grep 'rtl8125' 
+8.检查模块是否已安装加载[check kernel module loaded]   lsmod | grep 'rtl8125'   
 9.出现2行rlt 8125字样即安装成功。  [show 2 lines 'rtl8125' is OK！]
