@@ -1,6 +1,11 @@
 一键为Proxmox VE 添加RTL 8125 2.G网卡驱动,代码还没完成。。。。   [Incomplete linux shell code]
 
-注意[Notice]：请使用root用户编译  [Get superuser permission]
+注意[Notice]:
+
+#  Get superuser permission 【请使用root用户编译】
+# Add no subcript source 【添加非订阅用户源】
+# NOT recommended for production use 【不建议生产环境中使用】
+# PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】
 
 1.食用方法如下 [Usage] :  
 
