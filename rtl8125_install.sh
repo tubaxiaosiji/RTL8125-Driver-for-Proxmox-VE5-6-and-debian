@@ -21,6 +21,10 @@ if [ "${check}" != "" ]; then
         echo "Check is OK! [检测通过........]"
         rm /tmp/PVE_kernel_version.log
 	pve_kernel_headers_version=pve-headers-${Linux_kernel_version}
+	# Get PVE Full version 【获取当前PVE完整版本】
+	PVE_Full_version=`pveversion`
+	# Get PVE Main version 【获取当前PVE主版本，添加软件仓库源会用到】
+	PVE_Main_version=`echo ${PVE_Full_version:12:1}`
 else
         echo ''
 	while true; do
@@ -38,10 +42,6 @@ else
 
 fi
 
-# Get PVE Full version 【获取当前PVE完整版本】
-PVE_Full_version=`pveversion`
-# Get PVE Main version 【获取当前PVE主版本，添加软件仓库源会用到】
-PVE_Main_version=`echo ${PVE_Full_version:12:1}`
 
 
 # Add no subcript source 【添加非订阅用户源】
