@@ -8,6 +8,7 @@ Add no subcript source 【添加非订阅用户源】
 NOT recommended for production use 【不建议生产环境中使用】                  
 PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】   
 Support Proxmox VE 3.0-6.0 (include 6.2.x) 【支持PVE 3.0-6.0 系统，包括6.2.x 】
+r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网提供】
 
 1.食用方法如下 [Usage] :  
 
@@ -41,4 +42,4 @@ Support Proxmox VE 3.0-6.0 (include 6.2.x) 【支持PVE 3.0-6.0 系统，包括6
 	root@hostname# lsmod | grep 'rtl8125'   
 	
 
-9.出现rlt 8125字样即安装成功。  [If show 'rtl8125' that is OK!]
+9.出现 rlt 8125字样即安装成功。  [If show 'rtl8125' that is OK!]
