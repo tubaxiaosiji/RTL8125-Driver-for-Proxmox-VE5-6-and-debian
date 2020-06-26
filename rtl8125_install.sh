@@ -18,25 +18,25 @@ PVE_main_version=
 # PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】
 
 
-if [ "$PVE_version" == "6" ]; then
+if [ "$PVE_main_version" == "6" ]; then
 	# add PVE 6.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 fi
 
 
-if [ "$PVE_version" == "5" ]; then
+if [ "$PVE_main_version" == "5" ]; then
 	# add PVE 5.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian stretch pve-no-subscription
 fi
 
 
-if [ "$PVE_version" == "4" ]; then
+if [ "$PVE_main_version" == "4" ]; then
 	# add PVE 4.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian jessie pve-no-subscription
 fi
 
 
-if [ "$PVE_version" == "3" ]; then
+if [ "$PVE_main_version" == "3" ]; then
 	# add PVE 3.0 no subcript to apt source.list
 	deb http://download.proxmox.com/debian wheezy pve-no-subscription
 fi
@@ -44,7 +44,7 @@ fi
 
 apt-get update
 # Install dependent packages 【安装依赖包】
-apt-get install ${kernel_headers_full_version} dkms build-essential
+apt-get install ${kernel_headers_full_version} dkms build-essential 
 
 
 tar -xvf $PWD/r8125-9.003.04.tar
@@ -53,11 +53,10 @@ cd r8125-9.003.04
 chmod a+x autorun.sh
 ./autorun.sh
 
-# Check rtl8125 kernel modules exist it
+# Check rtl8125 kernel modules exist it 【检查驱动是否加载成功】
 
 if [ lsmod | grep 'rtl8152' != "" ]; then
-	print('RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]')
-}
-else if 
+	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
+elif 
 	echo 'Please confirm your system is PVE and installed PCIE RTL8125 2.5G ethernet card on your mainboard.  [请确认您的系统是PVE，并且安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
 fi
