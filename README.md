@@ -44,4 +44,4 @@ r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网
 	root@hostname# lsmod | grep 'r8125'   
 	
 
-9.出现 rlt 8125字样即安装成功   [If show 'r8125' that is OK!]
+9.出现 r8125字样即安装成功   [If show 'r8125' that is OK!]
