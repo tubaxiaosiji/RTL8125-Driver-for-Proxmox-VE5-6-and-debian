@@ -1,4 +1,6 @@
 一键为Proxmox VE 添加RTL 8125 2.G网卡驱动  [暂时未完成。。。]incomplete linux shell code  
+注意[Notice]：请使用root用户编译  [get superuser permission]
+
 1.食用方法如下 [Usage] :  
 2.检查git 是否安装 [Check git installed] apt-get update && apt-get install git  
 3.克隆我的仓库  git clone https://github.com/tubaxiaosiji/RTL8125-Driver-for-Proxmox-VE.git  
