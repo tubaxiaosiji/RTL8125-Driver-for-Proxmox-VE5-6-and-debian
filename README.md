@@ -6,7 +6,8 @@
 Get superuser permission 【请使用root用户编译】                   
 Add no subcript source 【添加非订阅用户源】     
 NOT recommended for production use 【不建议生产环境中使用】                  
-PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】               
+PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】   
+Support Proxmox VE 3.0-6.0 (include 6.2.x) 【支持PVE 3.0-6.0 系统，包括6.2.x 】
 
 1.食用方法如下 [Usage] :  
 
