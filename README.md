@@ -5,7 +5,7 @@
 1.食用方法如下 [Usage] :  
 
 
-2.检查git 是否安装 [Check git is installed] 
+2.安装git和它的依赖组件 是否安装 [Install git and dependent packages] 
 
 	root@hostname# apt-get update && apt-get install git  
 
