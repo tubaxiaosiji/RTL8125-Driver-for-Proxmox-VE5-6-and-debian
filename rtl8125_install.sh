@@ -4,7 +4,7 @@
 
 # Check rtl8125 kernel modules exist it 【检查驱动是否加载】
 check=`lsmod | grep r8152`
-if [ "$check" != "" ]; then
+if [ "${check}" != "" ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！当前网卡驱动已加载！]'
 	exit 0
 fi
