@@ -33,7 +33,7 @@ r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网
 
 6.运行脚本    [Run script in shell]   
 
-	root@hostname# sh ./rtl8125_install.sh  
+	root@hostname# bash rtl8125_install.sh  
 
 7.等待一会   [Wait for a minutes]...  
 
