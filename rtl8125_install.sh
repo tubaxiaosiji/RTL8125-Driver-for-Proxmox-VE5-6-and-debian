@@ -56,6 +56,7 @@ if [ "$PVE_Main_version" == 6 ]; then
 elif [ "$PVE_Main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
 	echo 'deb http://download.proxmox.com/debian stretch pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
+	apt install libelf-dev
 elif [ "$PVE_Main_version" == 4 ]; then
 	# add PVE 4.0 no subcript to apt source.list
 	echo 'deb http://download.proxmox.com/debian jessie pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
