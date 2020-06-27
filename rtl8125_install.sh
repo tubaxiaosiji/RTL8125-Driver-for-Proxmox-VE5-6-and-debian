@@ -5,7 +5,8 @@
 # Check rtl8125 kernel modules exist it 【检查驱动是否加载】
 check=`lsmod | grep r8125`
 if [ "${check}" != "" ]; then
-	echo 'RTL8125 driver has been Installed! [恭喜！当前网卡驱动已加载！]'
+	echo 'RTL8125 driver has been Installed!'
+	echo '[恭喜！当前网卡驱动已加载！]'
 	exit 0
 fi
 # Get Proxmox VE kernel version 【获取PVE内核版本】
@@ -18,7 +19,8 @@ uname -r > /tmp/kernel_version.log
 check=`grep "pve" /tmp/kernel_version.log`
 pve_kernel_headers_version=''
 if [ "${check}" != "" ]; then
-        echo "Check is OK! [检测通过........]"
+        echo "Check is OK!"
+	echo '[检测通过........]'
         rm /tmp/kernel_version.log
 	pve_kernel_headers_version=pve-headers-${Linux_kernel_version}
 	# Get PVE Full version 【获取当前PVE完整版本】
@@ -61,9 +63,12 @@ elif [ "$PVE_Main_version" == 3 ]; then
 	# add PVE 3.0 no subcript to apt source.list
 	echo 'deb http://download.proxmox.com/debian wheezy pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 else 
-	echo 'Your system is not Proxmox VE that No deb source add to apt source.list. [因为你不是PVE系统，所以没有添加任何软件源.]'
-	sleep 5
+	echo 'Your system is not Proxmox VE that No deb source add to apt source.list.'
+	echo '[因为你不是PVE系统，所以没有添加任何软件源.]'
 fi
+
+echo 'Will apt update and installing....'
+sleep 5
 
 
 apt-get update
@@ -82,6 +87,9 @@ if [ $? == 0 ]; then
 	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
 	exit 0
 else 
-	echo 'Please confirm your system version is last released[try:sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.  [请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
+	echo 'Please confirm your system version is last released[try:sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.' 
+	echo 'If your system is not Proxmox VE, try manually install linux-complie-gcc-xx packages'
+	echo '[请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
+	echo '[如果你的系统不是纯PVE版本, 请尝试手动安装 linux-complie-gcc-xx 组件。]'
 	exit -1
 fi
