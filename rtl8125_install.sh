@@ -92,8 +92,9 @@ chmod a+x autorun.sh
 if [ $? == 0 ]; then
 	echo 'RTL8125 driver has been compiled! please try run:[ lsmod | grep r8125 ]'
 	echo '恭喜！8125网卡驱动已编译！请输入检测命令:[ lsmod | grep r8125 ]'
-	echo 'If modprobe: ERROR: could not insert 'r8125': Invalid argument,Please reboot system.'
-	echo '如果出现 modprobe: ERROR: could not insert 'r8125': Invalid argument,请重启系统.'
+	echo '-------------------------------------------------------------------------------------'
+	echo 'If show modprobe: ERROR: could not insert 'r8125': Invalid argument,Please reboot system, and try it again. '
+	echo '如果出现 modprobe: ERROR: could not insert 'r8125': Invalid argument,请重启系统.再来一次。'
 	exit 0
 else 
 	echo 'Please confirm your system version is last released ，or try [sudo apt-get upgrade] ' 
