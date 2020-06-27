@@ -43,7 +43,12 @@ r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网
 
 8.检查模块是否已安装加载   [Check kernel module is exist it]   
 
-	root@hostname# lsmod | grep 'r8125'   
+	root@hostname# lsmod | grep 'r8125'   					
+	
+	
+9.如果出现  modprobe: ERROR: could not insert r8125: Invalid argument，请重启系统再运行一遍脚本即可。
+		
+[If show modprobe: ERROR: could not insert r8125: Invalid argument appears, please restart the system and run the script again.]        		
 	
 
 9.出现 r8125字样即安装成功   [If show 'r8125' that is OK!]
