@@ -51,4 +51,4 @@ r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网
 [If show modprobe: ERROR: could not insert r8125: Invalid argument appears, please restart the system and run the script again.]        		
 	
 
-9.出现 r8125字样即安装成功   [If show 'r8125' that is OK!]
+10.出现 r8125字样即安装成功   [If show 'r8125' that is OK!]
