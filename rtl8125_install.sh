@@ -23,13 +23,16 @@ check=`grep "pve" /tmp/kernel_version.log`
 
 
 if [ "${check}" != "" ]; then
-    echo "Check is OK!"
+    	echo "Check is OK!"
 	echo '检测通过........'
-    rm /tmp/kernel_version.log
+    	rm /tmp/kernel_version.log
+	
 	kernel_headers_last_version=pve-headers-${Linux_kernel_version}
 	kernel_full_last_version=pve-kernel-${Linux_kernel_version}
+	
 	# Get PVE Full version 【获取当前PVE完整版本】
 	PVE_Full_version=`pveversion`
+	
 	# Get PVE Main version 【获取当前PVE主版本，添加软件仓库源会用到】
 	PVE_Main_version=`echo ${PVE_Full_version:12:1}`
 else
@@ -45,6 +48,7 @@ else
 	done
 	kernel_headers_last_version=linux-headers-${Linux_kernel_version}
 	kernel_full_last_version=linux-imgage-${Linux_kernel_version}
+	
 	echo "Your Linux Kernel version is ${Linux_kernel_version}"
 	echo "你的 Linux Kernel 版本是：${Linux_kernel_version}"
 
