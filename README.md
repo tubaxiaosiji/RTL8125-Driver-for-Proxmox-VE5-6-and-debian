@@ -1,5 +1,5 @@
 
-        一键为Proxmox VE 添加RTL 8125 2.G网卡驱动, 刚刚写完，请试试吧QAQ       
+        一键为Proxmox VE 5/6 添加RTL 8125 2.G网卡驱动,少走点弯路。。。一块由89 RMB TP-link 2.5G 网卡引发的血案。。。       
    
 注意[Notice]:           
               
