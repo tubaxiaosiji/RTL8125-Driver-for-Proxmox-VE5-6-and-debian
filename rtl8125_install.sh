@@ -2,6 +2,8 @@
 # This script is automaticlly complie RTL8125 2.5G ethernet card driver for PVE
 # date 2020/4/25 22:35 UTC +8:00
 
+
+
 # Check rtl8125 kernel modules exist it 【检查驱动是否加载】
 check=`lsmod | grep r8125`
 if [ "${check}" != "" ]; then
@@ -9,20 +11,23 @@ if [ "${check}" != "" ]; then
 	echo '恭喜！当前网卡驱动已加载！'
 	exit 0
 fi
+
+
 # Get Proxmox VE kernel version 【获取PVE内核版本】
+#  uname - get name and information about current kernel
 
 Linux_kernel_version=`uname -r`
 
-# Get Proxmox VE kernel version 【获取PVE内核版本】
-
 uname -r > /tmp/kernel_version.log
 check=`grep "pve" /tmp/kernel_version.log`
-pve_kernel_headers_version=''
+
+
 if [ "${check}" != "" ]; then
-        echo "Check is OK!"
+    echo "Check is OK!"
 	echo '检测通过........'
-        rm /tmp/kernel_version.log
-	pve_kernel_headers_version=pve-headers-${Linux_kernel_version}
+    rm /tmp/kernel_version.log
+	kernel_headers_last_version=pve-headers-${Linux_kernel_version}
+	kernel_full_last_version=pve-kernel-${Linux_kernel_version}
 	# Get PVE Full version 【获取当前PVE完整版本】
 	PVE_Full_version=`pveversion`
 	# Get PVE Main version 【获取当前PVE主版本，添加软件仓库源会用到】
@@ -38,7 +43,8 @@ else
 		* ) echo "Please answer yes or no.";;
 	    esac
 	done
-	pve_kernel_headers_version=linux-headers-${Linux_kernel_version}
+	kernel_headers_last_version=linux-headers-${Linux_kernel_version}
+	kernel_full_last_version=linux-imgage-${Linux_kernel_version}
 	echo "Your Linux Kernel version is ${Linux_kernel_version}"
 	echo "你的 Linux Kernel 版本是：${Linux_kernel_version}"
 
@@ -60,17 +66,15 @@ elif [ "$PVE_Main_version" == 5 ]; then
 else 
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list.'
 	echo '因为你不是PVE系统，所以没有添加任何软件源.'
-	echo 'try install dependent packages[dkms build-essential make gcc]....'
+	echo 'try install dependent packages[dkms build-essential make gcc libelf-dev]....'
 	echo '尝试安装依赖包【dkms build-essential make gcc libelf-dev】...'	
 	
 fi
 
 sleep 2
 
-pve_kernel_last_version=pve-kernel-${Linux_kernel_version}
-
 apt-get update
-apt-get install ${pve_kernel_headers_version} ${pve_kernel_last_version}
+apt-get install ${kernel_headers_last_version} ${kernel_full_last_version}
 # Install dependent packages 【安装依赖包】
 apt-get -y install dkms build-essential make gcc libelf-dev
 
