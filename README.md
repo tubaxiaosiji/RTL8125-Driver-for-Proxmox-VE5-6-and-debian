@@ -17,7 +17,7 @@ r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网
 
 2.安装git和它的依赖组件  [Install git and dependent packages] 
 
-	root@hostname# apt-get update     # Warning will be upgrade your system。 将升级系统内核和相关组件
+	root@hostname# apt-get update     # Warning ！！ It will be upgrade your system。 将升级系统内核和相关组件
 	root@hostname# apt-get upgrade
 	root@hostname# apt-get -y install git
 
