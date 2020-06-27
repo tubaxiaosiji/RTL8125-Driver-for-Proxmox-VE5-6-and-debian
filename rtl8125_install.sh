@@ -88,8 +88,8 @@ if [ $? == 0 ]; then
 	exit 0
 else 
 	echo 'Please confirm your system version is last released[try:sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.' 
-	echo 'If your system is not Proxmox VE, try manually install linux-complie-gcc-xx packages'
+	echo 'If your system is not Proxmox VE, try manually install linux-complier-gcc-xx packages'
 	echo '[请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
-	echo '[如果你的系统不是纯PVE版本, 请尝试手动安装 linux-complie-gcc-xx 组件。]'
+	echo '[如果你的系统不是纯PVE版本, 请尝试手动安装 linux-complier-gcc-xx 组件。]'
 	exit -1
 fi
