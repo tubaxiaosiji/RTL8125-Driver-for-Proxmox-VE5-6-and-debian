@@ -7,7 +7,7 @@ Get superuser permission 【请使用root用户编译】
 Add no subcript source 【添加非订阅用户源】     
 NOT recommended for production use 【不建议生产环境中使用】                  
 PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】   
-Support Proxmox VE 3.0-6.0 (include 6.2.x) 【支持PVE 3.0-6.0 系统，包括6.2.x 】                                  
+Support Proxmox VE 5.0-6.0 (include 6.2.x) 【支持PVE 5.0-6.0 系统，包括6.2.x 】                                  
 r8125-9.003.04.tar provided by Realtek.com 【r8125-9.003.04.tar由Realtek官网提供】
 
 	root@hostname# 这个是命令提示符， "#" 井号后面的才是SHELL命令
