@@ -6,7 +6,7 @@
 check=`lsmod | grep r8125`
 if [ "${check}" != "" ]; then
 	echo 'RTL8125 driver has been Installed!'
-	echo '[恭喜！当前网卡驱动已加载！]'
+	echo '恭喜！当前网卡驱动已加载！'
 	exit 0
 fi
 # Get Proxmox VE kernel version 【获取PVE内核版本】
@@ -20,7 +20,7 @@ check=`grep "pve" /tmp/kernel_version.log`
 pve_kernel_headers_version=''
 if [ "${check}" != "" ]; then
         echo "Check is OK!"
-	echo '[检测通过........]'
+	echo '检测通过........'
         rm /tmp/kernel_version.log
 	pve_kernel_headers_version=pve-headers-${Linux_kernel_version}
 	# Get PVE Full version 【获取当前PVE完整版本】
@@ -30,8 +30,8 @@ if [ "${check}" != "" ]; then
 else
         echo ''
 	while true; do
-	    read -p "Warning, your system is not Proxmox VE.Maybe there is no matching kernel version in your software source repository，Continue? y/n
-	    [警告，您的系统不是PVE，也许您的软件源仓库里没有匹配的内核版本，继续安装？按y继续，按n退出.]" yn
+	    read -p "Warning!!!!!! your system is not Proxmox VE.Maybe there is no matching kernel version in your software source repository，Continue? y/n
+	    警告!!!!!您的系统不是PVE，也许您的软件源仓库里没有匹配的内核版本，继续安装？按y继续，按n退出." yn
 	    case $yn in
 		[Yy]* ) break;;
 		[Nn]* ) exit 0;;
@@ -45,7 +45,6 @@ else
 fi
 
 
-
 # Add no subcript source 【添加非订阅用户源】
 # NOT recommended for production use 【不建议生产环境中使用】
 # PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】
@@ -53,29 +52,26 @@ fi
 if [ "$PVE_Main_version" == 6 ]; then
 	# add PVE 6.0 no subcript to apt source.list
 	echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
+	echo 'adding no subcript source to /etc/apt/sources.list.d/pve-no-subscription.list.....'
 elif [ "$PVE_Main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
 	echo 'deb http://download.proxmox.com/debian stretch pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
+	echo 'adding no subcript source to /etc/apt/sources.list.d/pve-no-subscription.list.....'
 	apt install libelf-dev
-elif [ "$PVE_Main_version" == 4 ]; then
-	# add PVE 4.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian jessie pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
-elif [ "$PVE_Main_version" == 3 ]; then
-	# add PVE 3.0 no subcript to apt source.list
-	echo 'deb http://download.proxmox.com/debian wheezy pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 else 
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list.'
-	echo '[因为你不是PVE系统，所以没有添加任何软件源.]'
+	echo '因为你不是PVE系统，所以没有添加任何软件源.'
+	echo 'try install dependent packages[dkms build-essential make gcc]....'
+	echo '尝试安装依赖包【dkms build-essential make gcc】...'	
+	
 fi
 
-echo 'Will apt update and installing....'
-sleep 5
-
+sleep 2
 
 apt-get update
-apt-get -y install ${pve_kernel_headers_version}
+apt-get install ${pve_kernel_headers_version}
 # Install dependent packages 【安装依赖包】
-apt-get -y install dkms build-essential make gcc 
+apt-get install dkms build-essential make gcc
 
 
 tar -xvf $PWD/r8125-9.003.04.tar
@@ -85,12 +81,13 @@ chmod a+x autorun.sh
 ./autorun.sh
 
 if [ $? == 0 ]; then
-	echo 'RTL8125 driver has been Installed! [恭喜！网卡驱动已加载！]'
+	echo 'RTL8125 driver has been compiled! please try run:[ lsmod | grep r8125 ]'
+	echo '恭喜！网卡驱动已编译！请输入检测命令:[ lsmod | grep r8125 ]'
 	exit 0
 else 
-	echo 'Please confirm your system version is last released[try:sudo apt upgrade] and has installed RTL8125 2.5G PCIE　ethernet card on your mainboard.' 
-	echo 'If your system is not Proxmox VE, try manually install linux-complier-gcc-xx packages'
-	echo '[请检查更新系统版本[sudo apt upgrade]，并确认安装好了Rlt 8125网卡在主板PCIE卡槽上。]'
-	echo '[如果你的系统不是纯PVE版本, 请尝试手动安装 linux-complier-gcc-xx 组件。]'
+	echo 'Please confirm your system version is last released ，or try [sudo apt-get upgrade] ' 
+	echo 'If your system is not Proxmox VE, try manually install [linux-complier-gcc-xx packages]'
+	echo '请尝试更新系统版本 [sudo apt-get upgrade]'
+	echo '如果你的系统不是纯PVE版本, 请尝试手动安装 [linux-complier-gcc-xx] 组件。'
 	exit -1
 fi
