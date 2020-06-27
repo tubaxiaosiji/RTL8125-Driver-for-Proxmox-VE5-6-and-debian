@@ -57,21 +57,22 @@ elif [ "$PVE_Main_version" == 5 ]; then
 	# add PVE 5.0 no subcript to apt source.list
 	echo 'deb http://download.proxmox.com/debian stretch pve-no-subscription' > /etc/apt/sources.list.d/pve-no-subscription.list
 	echo 'adding no subcript source to /etc/apt/sources.list.d/pve-no-subscription.list.....'
-	apt install libelf-dev
 else 
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list.'
 	echo '因为你不是PVE系统，所以没有添加任何软件源.'
 	echo 'try install dependent packages[dkms build-essential make gcc]....'
-	echo '尝试安装依赖包【dkms build-essential make gcc】...'	
+	echo '尝试安装依赖包【dkms build-essential make gcc libelf-dev】...'	
 	
 fi
 
 sleep 2
 
+pve_kernel_last_version=pve-kernel-${Linux_kernel_version}
+
 apt-get update
-apt-get install ${pve_kernel_headers_version}
+apt-get install ${pve_kernel_headers_version} ${pve_kernel_last_version}
 # Install dependent packages 【安装依赖包】
-apt-get -y install dkms build-essential make gcc
+apt-get -y install dkms build-essential make gcc libelf-dev
 
 
 tar -xvf $PWD/r8125-9.003.04.tar
