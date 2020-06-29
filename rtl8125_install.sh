@@ -47,7 +47,7 @@ else
 	    esac
 	done
 	kernel_headers_last_version=linux-headers-${Linux_kernel_version}
-	kernel_full_last_version=linux-imgage-${Linux_kernel_version}
+	kernel_full_last_version=linux-image-${Linux_kernel_version}
 	
 	echo "Your Linux Kernel version is ${Linux_kernel_version}"
 	echo "你的 Linux Kernel 版本是：${Linux_kernel_version}"
