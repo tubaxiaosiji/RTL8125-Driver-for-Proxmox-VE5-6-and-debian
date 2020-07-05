@@ -23,7 +23,7 @@ check=`grep "pve" /tmp/kernel_version.log`
 
 
 if [ "${check}" != "" ]; then
-    	echo "Check is pass....!"
+    	echo "Checking is pass....!"
 	echo '检测通过........'
     	rm /tmp/kernel_version.log
 	
