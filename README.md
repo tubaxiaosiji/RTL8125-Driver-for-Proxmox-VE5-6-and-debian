@@ -13,7 +13,7 @@ Add no subcript source 【添加非订阅用户源】
 NOT recommended for production use 【不建议生产环境中使用】                  
 PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】   
 Support Proxmox VE 5.0-6.0 (include 6.2.x) 【支持PVE 5.0-6.0 系统，包括6.2.x 】                                  
-r8125-9.003.05.tar.bz2 provided by Realtek.com 【r8125-9.003.05.tar.bz2由Realtek官网提供】				
+r8125-9.003.05.tar.bz2 provided by Realtek.com 【r8125-9.003.05.tar.bz2由Realtek官网提供】                           		
 Support Linux kernel version 2.4 to 5.6   【支持的Linux内核版本，从2.4到5.6】
 
 	root@hostname# 这个是命令提示符， "#" 井号后面的才是SHELL命令
