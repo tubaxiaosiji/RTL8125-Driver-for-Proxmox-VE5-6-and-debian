@@ -1,6 +1,7 @@
 #!/bin/bash
 # This script is automaticlly complie RTL8125 2.5G ethernet card driver for PVE
 # date 2020/4/25 22:35 UTC +8:00
+# Support Linux kernel version 2.4 to 5.6
 
 
 
@@ -14,7 +15,7 @@ fi
 
 
 # Get Proxmox VE kernel version 【获取PVE内核版本】
-#  uname - get name and information about current kernel
+# uname -- get name and information about current kernel
 
 Linux_kernel_version=`uname -r`
 
