@@ -4,10 +4,10 @@
 
 
 
-# Check rtl8125 kernel modules exist it 【检查驱动是否加载】
+# Check rtl8125 kernel modules is exist it 【检查驱动是否加载】
 check=`lsmod | grep r8125`
 if [ "${check}" != "" ]; then
-	echo 'RTL8125 driver has been Installed!'
+	echo 'RTL8125 driver has been Loaded!'
 	echo '恭喜！当前网卡驱动已加载！'
 	exit 0
 fi
@@ -23,7 +23,7 @@ check=`grep "pve" /tmp/kernel_version.log`
 
 
 if [ "${check}" != "" ]; then
-    	echo "Check is OK!"
+    	echo "Check is pass....!"
 	echo '检测通过........'
     	rm /tmp/kernel_version.log
 	
@@ -72,11 +72,12 @@ else
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list.'
 	echo '因为你不是PVE系统，所以没有添加任何软件源.'
 	echo '-------------------------------------------------------------------------------------'
-	echo 'try install dependent packages[dkms build-essential make gcc libelf-dev]....'
-	echo '尝试安装依赖包【dkms build-essential make gcc libelf-dev】....'	
 	
 fi
 
+
+echo 'try install dependent packages[dkms build-essential make gcc libelf-dev]....'
+echo '尝试安装依赖包【dkms build-essential make gcc libelf-dev】....'	
 sleep 5
 
 apt-get update
@@ -101,8 +102,11 @@ if [ $? == 0 ]; then
 	echo '如果出现 modprobe: ERROR: could not insert 'r8125': Invalid argument,请重启系统.再来一次。'
 	exit 0
 else 
+	echo ''
+	echo ''
 	echo 'Please confirm your system version is last released ，or try [sudo apt-get upgrade] ' 
 	echo 'If your system is not Proxmox VE, try manually install [linux-complier-gcc-xx package]'
+	echo '-------------------------------------------------------------------------------------'
 	echo '请尝试更新系统版本 [sudo apt-get upgrade]'
 	echo '如果你的系统不是纯PVE版本, 请尝试手动安装 [linux-complier-gcc-xx] 组件。'
 	exit -1
