@@ -1,4 +1,4 @@
-# /bin/bash
+#!/bin/bash
 # This script is automaticlly complie RTL8125 2.5G ethernet card driver for PVE
 # date 2020/4/25 22:35 UTC +8:00
 
@@ -27,8 +27,8 @@ if [ "${check}" != "" ]; then
 	echo '检测通过........'
     	rm /tmp/kernel_version.log
 	
-	kernel_headers_last_version=pve-headers-${Linux_kernel_version}
-	kernel_full_last_version=pve-kernel-${Linux_kernel_version}
+	kernel_headers_latest_version=pve-headers-${Linux_kernel_version}
+	kernel_image_latest_version=pve-kernel-${Linux_kernel_version}
 	
 	# Get PVE Full version 【获取当前PVE完整版本】
 	PVE_Full_version=`pveversion`
@@ -46,11 +46,12 @@ else
 		* ) echo "Please answer yes or no.";;
 	    esac
 	done
-	kernel_headers_last_version=linux-headers-${Linux_kernel_version}
-	kernel_full_last_version=linux-image-${Linux_kernel_version}
+	kernel_headers_latest_version=linux-headers-${Linux_kernel_version}
+	kernel_image_latest_version=linux-image-${Linux_kernel_version}
 	
 	echo "Your Linux Kernel version is ${Linux_kernel_version}"
 	echo "你的 Linux Kernel 版本是：${Linux_kernel_version}"
+	echo '-------------------------------------------------------------------------------------'
 
 fi
 
@@ -70,15 +71,16 @@ elif [ "$PVE_Main_version" == 5 ]; then
 else 
 	echo 'Your system is not Proxmox VE that No deb source add to apt source.list.'
 	echo '因为你不是PVE系统，所以没有添加任何软件源.'
+	echo '-------------------------------------------------------------------------------------'
 	echo 'try install dependent packages[dkms build-essential make gcc libelf-dev]....'
-	echo '尝试安装依赖包【dkms build-essential make gcc libelf-dev】...'	
+	echo '尝试安装依赖包【dkms build-essential make gcc libelf-dev】....'	
 	
 fi
 
-sleep 2
+sleep 5
 
 apt-get update
-apt-get install ${kernel_headers_last_version} ${kernel_full_last_version}
+apt-get install ${kernel_headers_latest_version} ${kernel_image_latest_version}
 # Install dependent packages 【安装依赖包】
 apt-get -y install dkms build-essential make gcc libelf-dev
 
@@ -90,6 +92,8 @@ chmod a+x autorun.sh
 ./autorun.sh
 
 if [ $? == 0 ]; then
+	echo ''
+	echo ''
 	echo 'RTL8125 driver has been compiled! please try run:[ lsmod | grep r8125 ]'
 	echo '恭喜！8125网卡驱动已编译！请输入检测命令:[ lsmod | grep r8125 ]'
 	echo '-------------------------------------------------------------------------------------'
@@ -98,7 +102,7 @@ if [ $? == 0 ]; then
 	exit 0
 else 
 	echo 'Please confirm your system version is last released ，or try [sudo apt-get upgrade] ' 
-	echo 'If your system is not Proxmox VE, try manually install [linux-complier-gcc-xx packages]'
+	echo 'If your system is not Proxmox VE, try manually install [linux-complier-gcc-xx package]'
 	echo '请尝试更新系统版本 [sudo apt-get upgrade]'
 	echo '如果你的系统不是纯PVE版本, 请尝试手动安装 [linux-complier-gcc-xx] 组件。'
 	exit -1
