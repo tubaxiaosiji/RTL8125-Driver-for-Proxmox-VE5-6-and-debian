@@ -1,14 +1,20 @@
 
-        一键为Proxmox VE 5/6 添加RTL 8125 2.5G网卡驱动,少走点弯路。。。一块由89 RMB TP-link 2.5G 网卡引发的血案。。。       
-   
+        为Proxmox VE 5/6 快速添加RTL 8125 2.5G网卡驱动,少走点弯路。。。一块由89 RMB TP-link 2.5G 网卡引发的血案。。。       
+
+
+
+基于debian的发行版本可以尝试运行一下，因为不同发行版本的软件源仓库可能不太一样，不一定有匹配的内核image和内核Headers，这个得靠各位去尝试了。
+如果你的系统是PVE系统的话，直接无脑下一步就行了。                                   
+
+
 注意[Notice]:           
-              
-Get superuser permission 【请使用root用户编译】                   
+Get superuser permission 【最好请使用root用户编译】                   
 Add no subcript source 【添加非订阅用户源】     
 NOT recommended for production use 【不建议生产环境中使用】                  
 PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软件仓库由proxmox.com提供】   
 Support Proxmox VE 5.0-6.0 (include 6.2.x) 【支持PVE 5.0-6.0 系统，包括6.2.x 】                                  
 r8125-9.003.05.tar.bz2 provided by Realtek.com 【r8125-9.003.05.tar.bz2由Realtek官网提供】
+Support Linux kernel version 2.4 to 5.6   【支持的Linux内核版本，从2.4到5.6】
 
 	root@hostname# 这个是命令提示符， "#" 井号后面的才是SHELL命令
                 		
