@@ -104,7 +104,7 @@ if [ $? == 0 ]; then
 else 
 	echo ''
 	echo ''
-	echo 'Please confirm your system version is last released ，or try [sudo apt-get upgrade] ' 
+	echo 'Please confirm your system version is latest released ，or try [sudo apt-get upgrade] ' 
 	echo 'If your system is not Proxmox VE, try manually install [linux-complier-gcc-xx package]'
 	echo '-------------------------------------------------------------------------------------'
 	echo '请尝试更新系统版本 [sudo apt-get upgrade]'
