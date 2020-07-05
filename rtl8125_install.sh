@@ -5,7 +5,7 @@
 
 
 
-# Check rtl8125 kernel modules is exist it 【检查驱动是否加载】
+# Check rtl8125 kernel module is exist it 【检查驱动是否加载】
 check=`lsmod | grep r8125`
 if [ "${check}" != "" ]; then
 	echo 'RTL8125 driver has been Loaded!'
