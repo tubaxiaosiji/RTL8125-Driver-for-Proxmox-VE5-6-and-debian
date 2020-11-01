@@ -43,7 +43,7 @@ Support Linux kernel version 2.4 to 5.6   【支持的Linux内核版本，从2.4
 
 4.切换到目录	  [Change dir]   
 
-	root@hostname# cd /RTL8125-Driver-for-Proxmox-VE  
+	root@hostname# cd /RTL8125-Driver-for-Proxmox-VE5-6-and-debian  
 
 5.赋予运行权限   [Chmod]   
 
