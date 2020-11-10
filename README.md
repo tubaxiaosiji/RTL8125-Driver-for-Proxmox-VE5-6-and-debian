@@ -1,7 +1,7 @@
 更新至2020-10-19官方驱动r8125-9.004.01.tar.bz2
 感谢tubaxiaosiji大佬的脚本
 
-
+************************************************************************************************************
 
 
         为Proxmox VE 5/6 快速添加RTL 8125 2.5G网卡驱动,少走点弯路。。。一块由89 RMB TP-link 2.5G 网卡引发的血案。。。       
@@ -43,7 +43,7 @@ Support Linux kernel version 2.4 to 5.6   【支持的Linux内核版本，从2.4
 
 4.切换到目录	  [Change dir]   
 
-	root@hostname# cd /RTL8125-Driver-for-Proxmox-VE5-6-and-debian  
+	root@hostname# cd ./RTL8125-Driver-for-Proxmox-VE5-6-and-debian  
 
 5.赋予运行权限   [Chmod]   
 
