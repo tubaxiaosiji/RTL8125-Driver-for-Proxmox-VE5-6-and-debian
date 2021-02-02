@@ -1,5 +1,8 @@
-更新至2020-10-19官方驱动r8125-9.004.01.tar.bz2
 感谢tubaxiaosiji大佬的脚本
+
+更新至2021-02-01官方驱动r8125-9.005.01.tar.bz2
+https://www.realtek.com/zh/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software
+
 
 ************************************************************************************************************
 
