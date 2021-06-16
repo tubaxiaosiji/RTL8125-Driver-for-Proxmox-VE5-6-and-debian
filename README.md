@@ -1,3 +1,11 @@
+感谢tubaxiaosiji大佬的脚本
+
+更新至2021/05/28官方驱动r8125-9.005.06.tar.bz2
+https://www.realtek.com/zh/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software
+
+
+************************************************************************************************************
+
 
         为Proxmox VE 5/6 快速添加RTL 8125 2.5G网卡驱动,少走点弯路。。。一块由89 RMB TP-link 2.5G 网卡引发的血案。。。       
 
@@ -34,11 +42,11 @@ Support Linux kernel version 2.4 to 5.6   【支持的Linux内核版本，从2.4
 
 3.克隆我的仓库  [Clone my .git]
 
-	root@hostname# git clone https://github.com/tubaxiaosiji/RTL8125-Driver-for-Proxmox-VE.git  
+	root@hostname# git clone https://github.com/uioprr/RTL8125-Driver-for-Proxmox-VE5-6-and-debian.git  
 
 4.切换到目录	  [Change dir]   
 
-	root@hostname# cd ./RTL8125-Driver-for-Proxmox-VE  
+	root@hostname# cd ./RTL8125-Driver-for-Proxmox-VE5-6-and-debian  
 
 5.赋予运行权限   [Chmod]   
 
