@@ -19,7 +19,7 @@ PVE pve-no-subscription repository provided by proxmox.com 【非订阅用户软
 Support Proxmox VE 5.0-7.0 (include 6.2.x) 【支持PVE 5.0-7.0 系统，包括7.1.x 】  
 
 r8125-9.007.01.tar.bz2 provided by Realtek.com 【r8125-9.007.01.tar.bz2 2021/11/17 由Realtek官网
-(https://www.realtek.com/zh/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software)
+(https://www.realtek.com/zh-tw/component/zoo/category/network-interface-controllers-10-100-1000m-gigabit-ethernet-pci-express-software)
 提供】
 
 Support Linux kernel version 2.4 to 5.6   【支持的Linux内核版本，从2.4到5.6】
